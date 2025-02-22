@@ -45,9 +45,19 @@ class Fitness:
         self.fenster.destroy()
         register = Tk()
         register.title("Register")
+
+        self.name = Label(self.register, text="Stepup", font=("Arial", 20))
+        self.Login = Button(self.register, text="Register", width=15, command = self.register)
+        self.login = Button(self.register, text="Already have an account? Login here", width=30, command = self.gotologin)
+        self.name = Label(self.register, text="Stepup", font=("Arial", 20))
+        self.name = Label(self.register, text="Height:", font=("Arial", 20))
+        self.name = Label(self.register, text="Weight:", font=("Arial", 20))
+        
         
 
         self.fenster.mainloop()
+
+    def gotologin()
 
     def reset(self):
         self.fenster.destroy()
