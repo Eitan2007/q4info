@@ -1,5 +1,6 @@
 from tkinter import Tk, Label, Button, Entry
 from tkinter import messagebox
+from sqlite3 import *
 class Fitness:
     def __init__(self):
         self.fenster = Tk()
@@ -36,32 +37,74 @@ class Fitness:
             main = Tk()
             
         else:
-            email1.delete(0, 'end')
-            password1.delete(0, 'end')
+            self.email1.delete(0, 'end')
+            self.password1.delete(0, 'end')
             messagebox.showerror("Login Status", "login unsuccessful")
         
             
     def gotoregister(self):
         self.fenster.destroy()
-        register = Tk()
-        register.title("Register")
+        self.register = Tk()
+        self.register.title("Register")
 
         self.name = Label(self.register, text="Stepup", font=("Arial", 20))
-        self.Login = Button(self.register, text="Register", width=15, command = self.register)
-        self.login = Button(self.register, text="Already have an account? Login here", width=30, command = self.gotologin)
-        self.name = Label(self.register, text="Stepup", font=("Arial", 20))
-        self.name = Label(self.register, text="Height:", font=("Arial", 20))
-        self.name = Label(self.register, text="Weight:", font=("Arial", 20))
+        self.login1 = Button(self.register, text="Register", width=15, command = self.register)
+        self.login12 = Button(self.register, text="Already have an account? Login here", width=30, command = self.gotologin)
+        self.stepup = Label(self.register, text="Stepup", font=("Arial", 20))
+        self.height = Label(self.register, text="Height:", font=("Arial", 20))
+        self.weight = Label(self.register, text="Weight:", font=("Arial", 20))
+        self.password = Label(self.register, text="password:", font=("Arial", 20))
+        self.repassword = Label(self.register, text="repeat password:", font=("Arial", 20))
+        self.age    = Label(self.register, text = "Age:", font = ("arial", 20))
+
+        self.register1 = Button (self.register, text = "register",font = ("arial", 20), command= self.register)
+        self.weight1 = Entry(self.register)
+        self.height1 = Entry(self.register,)
+        self.password2 = Entry(self.register,text = "password")
+        self.password3 = Entry(self.register,text = "repeat password")
+        self.email1 = Entry (self.register, text = "enter your email")
+        self.email2 = Entry(self.register, text = "repeat Email")
+        self.age1 = Entry(self.register, text = "Age:")
+
+        self.name.grid(row=0, column=0)
+        self.login1.grid(row=0, column=0)
+        self.login12.grid(row=0, column=0)
+        self.stepup.grid(row=0, column=0)
+        self.height.grid(row=0, column=0)
+        self.weight.grid(row=0, column=0)
+        self.register1.grid(row=0, column=0)
+        self.password2.grid(row=0, column=0)
+        self.password2.grid(row=0, column=0)
+
+        self.email2.grid(row=0, column=0)
+
         
         
 
         self.fenster.mainloop()
-
-    def gotologin()
+    def gotologin(self):
+        self.register.destroy()
+        self.fenster = Tk()
 
     def reset(self):
         self.fenster.destroy()
 
+    def register(self):
+
+        if self.password2.get() == self.password3.get() and not self.weight1.get() or not self.email1 or not self.email2 or not self.height1.get() or not self.age1.get():
+            messagebox.showinfo("Registration Status", "registered successfully")
+            self.register.destroy()
+            self.home = Tk()
+            self.home.title("homepage")
+
+            
+        else:
+            self.email1.delete(0, 'end')
+            self.password1.delete(0, 'end')
+            messagebox.showerror("Registration Status", "registered unsuccessfully")
+        
+
+
+
 
 Fitness()
-# test
