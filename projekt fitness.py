@@ -26,6 +26,8 @@ class Fitness:
         
         self.email1.grid(row=2, column=1, padx=10, pady=5)
         self.password1.grid(row=4, column=1, padx=10, pady=5)
+
+        
         
     def login(self):
         
@@ -44,10 +46,47 @@ class Fitness:
     def gotoregister(self):
         self.fenster.destroy()
         register = Tk()
-        register.title("Register")
+        self.register = Tk()
+        self.register.title("Registration")
+        
+        
+        self.name = Label(self.register, text="register", font=("Arial", 20))
+        self.Registration = Button(self.register, text="register", width=15, command = self.register)
+        self.login = Button(self.register, text="Already have an account? Login here", width=30, command = self.)
         
 
-        self.fenster.mainloop()
+        self.Email = Label(self.register, text="Email:")
+        self.Password = Label(self.register, text="Password:")
+        self.Passwordrep = Label(self.register, text="Repeat Password:")
+        self.email2 = Entry(self.register)
+        self.password2 = Entry(self.register, show="*")  
+        self.passwordrep2 = Entry(self.register, show="*")  
+        
+
+        self.name.grid(row=0, column=1, pady=10)
+        self.Registration.grid(row=5, column=1, pady=10)
+        self.login.grid(row=6, column=1, pady=10)
+        
+        self.Email.grid(row=2, column=0, padx=10)
+        self.Password.grid(row=4, column=0, padx=10)
+        self.passwordrep2.grid(row=4, column=0, padx=10)
+
+        self.email2.grid(row=2, column=1, padx=10, pady=5)
+        self.password2.grid(row=4, column=1, padx=10, pady=5)
+        self.passwordrep2.grid(row=4, column=0, padx=10)
+        register.title("Register")
+        
+        conn = sqlite3.connect('table.db')
+        connection.execute(''' CREATE TABLE mydatabase
+         FIND INT PRIMARY KEY,
+         Name TEXT NOT NULL,
+         weight  INT  NOT NULL,
+         height    INT; age INT NOT NULL''')
+         
+        
+
+
+        self.register.mainloop()
 
     def reset(self):
         self.fenster.destroy()
