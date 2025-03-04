@@ -136,6 +136,26 @@ class Fitness:
     def reset(self):
         self.fenster.destroy()
 
+        def bmi(self):
+        BMI = weight/height * 2
+
+        if bmi < 18,5:
+            status = ("underweight")
+        elif 24,9 > bmi > 18,5:
+            status = ("normal weight")
+
+        elif 29,9 > bmi > 25:
+            status = ("overweight")
+
+        elif 34,9 > BMI > 30:
+            status = ("adipositas I")
+        elif BMI > 35:
+            status = ("adipositas I")
+
+
+    def kfa(self): 
+
+
     def register(self):
 
         if self.password2.get() == self.password3.get() and not self.weight1.get() or not self.email1 or not self.email2 or not self.height1.get() or not self.age1.get():
