@@ -46,7 +46,7 @@ class Fitness:
             
     def gotoregister(self):
         self.fenster.destroy()
-<<<<<<< HEAD
+
         register = Tk()
         self.register = Tk()
         self.register.title("Registration")
@@ -54,7 +54,7 @@ class Fitness:
         
         self.name = Label(self.register, text="register", font=("Arial", 20))
         self.Registration = Button(self.register, text="register", width=15, command = self.register)
-        self.login = Button(self.register, text="Already have an account? Login here", width=30, command = self.)
+        self.login = Button(self.register, text="Already have an account? Login here", width=30, command = self)
         
 
         self.Email = Label(self.register, text="Email:")
@@ -79,17 +79,13 @@ class Fitness:
         register.title("Register")
         
         conn = sqlite3.connect('table.db')
-        connection.execute(''' CREATE TABLE mydatabase
-         FIND INT PRIMARY KEY,
-         Name TEXT NOT NULL,
-         weight  INT  NOT NULL,
-         height    INT; age INT NOT NULL''')
+        connection.execute(''' CREATE TABLE mydatabase FIND INT PRIMARY KEY, Name TEXT NOT NULL, weight  INT  NOT NULL, eight    INT; age INT NOT NULL''')
          
         
 
 
         self.register.mainloop()
-=======
+
         self.register = Tk()
         self.register.title("Register")
 
@@ -131,7 +127,6 @@ class Fitness:
     def gotologin(self):
         self.register.destroy()
         self.fenster = Tk()
->>>>>>> b3aabf133f27edbb9097c1c3f77a4baf8382ffae
 
     def reset(self):
         self.fenster.destroy()
@@ -139,19 +134,24 @@ class Fitness:
         def bmi(self):
         BMI = weight/height * 2
 
-        if bmi < 18,5:
-            status = ("underweight")
-        elif 24,9 > bmi > 18,5:
-            status = ("normal weight")
-
-        elif 29,9 > bmi > 25:
-            status = ("overweight")
-
-        elif 34,9 > BMI > 30:
-            status = ("adipositas I")
-        elif BMI > 35:
-            status = ("adipositas I")
-
+         def bmi(self, weight, height):
+            bmi = weight / (height ** 2)
+            if bmi < 18.5:
+                return "Underweight"
+            elif 18.5 <= bmi <= 24.9:
+                return "Normal weight"
+            elif 25 <= bmi <= 29.9:
+                return "Overweight"
+            elif 30 <= bmi <= 34.9:
+                return "Obesity I"
+            elif bmi >= 35:
+                return "Obesity II"
+            else:
+                return "Invalid BMI"
+        except ZeroDivisionError:
+            return "Height cannot be zero"
+        except ValueError:
+            return "Invalid input"
 
     def kfa(self): 
 
