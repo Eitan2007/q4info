@@ -78,10 +78,15 @@ class Fitness:
         self.passwordrep2.grid(row=4, column=0, padx=10)
         register.title("Register")
         
+    def connect_db(self):   
+        return sqlite3.connect('fitness.db')
+
         conn = sqlite3.connect('table.db')
         connection.execute(''' CREATE TABLE mydatabase FIND INT PRIMARY KEY, Name TEXT NOT NULL, weight  INT  NOT NULL, eight    INT; age INT NOT NULL''')
          
-        
+        conn.commit()
+        conn.close()
+
 
 
         self.register.mainloop()
@@ -134,29 +139,33 @@ class Fitness:
         def bmi(self):
         BMI = weight/height * 2
 
-         def bmi(self, weight, height):
-            bmi = weight / (height ** 2)
-            if bmi < 18.5:
-                return "Underweight"
-            elif 18.5 <= bmi <= 24.9:
-                return "Normal weight"
-            elif 25 <= bmi <= 29.9:
-                return "Overweight"
-            elif 30 <= bmi <= 34.9:
-                return "Obesity I"
-            elif bmi >= 35:
-                return "Obesity II"
-            else:
-                return "Invalid BMI"
-        except ZeroDivisionError:
-            return "Height cannot be zero"
-        except ValueError:
-            return "Invalid input"
+def bmi(self, weight, height):
+    bmi = weight / (height ** 2)
+    if bmi < 18.5:
+        return "Underweight"
+    elif 18.5 <= bmi <= 24.9:
+        return "Normal weight"
+    elif 25 <= bmi <= 29.9:
+        return "Overweight"
+    elif 30 <= bmi <= 34.9:
+        return "Obesity I"
+     elif bmi >= 35:
+        return "Obesity II"
+    else:
+        return "Invalid BMI"
+    except ZeroDivisionError:
+        return "Height cannot be zero"
+    except ValueError:
+        return "Invalid input"
 
     def kfa(self): 
 
 
     def register(self):
+
+        email = self.email_entry.get()
+        password = self.password_entry.get()
+        repeat_password = self.repeat_password_entry.get()
 
         if self.password2.get() == self.password3.get() and not self.weight1.get() or not self.email1 or not self.email2 or not self.height1.get() or not self.age1.get():
             messagebox.showinfo("Registration Status", "registered successfully")
@@ -170,6 +179,8 @@ class Fitness:
             self.password1.delete(0, 'end')
             messagebox.showerror("Registration Status", "registered unsuccessfully")
         
+       
+
 
 
 
